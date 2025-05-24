@@ -1,0 +1,294 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.2, pytest-8.3.5, pluggy-1.6.0 -- C:\Users\diego\Desktop\Proyecto-CIB02N\env\Scripts\python.exe
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.2', 'Platform': 'Windows-11-10.0.22631-SP0', 'Packages': {'pytest': '8.3.5', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.9.0', 'langsmith': '0.3.39', 'cov': '6.1.1', 'json-report': '1.5.0', 'metadata': '3.1.1'}}
+rootdir: C:\Users\diego\Desktop\Proyecto-CIB02N
+configfile: pytest.ini
+plugins: anyio-4.9.0, langsmith-0.3.39, cov-6.1.1, json-report-1.5.0, metadata-3.1.1
+collecting ... collected 31 items
+
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_document_processing_real_data PASSED [  3%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_academic_calendar_extraction PASSED [  6%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_procedure_cost_extraction PASSED [  9%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_traslado_requirements_validation PASSED [ 12%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_cycle_date_calculator_tdd PASSED [ 16%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_cost_calculator_tdd PASSED [ 19%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_smart_document_router_tdd PASSED [ 22%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_fiee_qa_golden_dataset PASSED [ 25%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_specific_date_accuracy_regression FAILED [ 29%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_response_time_with_real_queries PASSED [ 32%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_student_certificate_request_flow FAILED [ 35%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_transfer_student_inquiry_flow FAILED [ 38%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_enrollment_period_inquiry FAILED [ 41%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_ambiguous_query_handling FAILED [ 45%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_conversational_context_memory PASSED [ 48%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_domain_specific_terminology_coverage FAILED [ 51%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_date_information_accuracy PASSED [ 54%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_cost_information_consistency PASSED [ 58%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_ocr_integration_with_fiee_images PASSED [ 61%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_pdf_integration_with_fiee_documents PASSED [ 64%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_vector_database_integration PASSED [ 67%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_empty_query_handling PASSED [ 70%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_very_long_query_handling PASSED [ 74%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_special_characters_in_query PASSED [ 77%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_out_of_domain_queries PASSED [ 80%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_response_completeness PASSED [ 83%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_response_accuracy PASSED [ 87%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_response_consistency PASSED [ 90%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_environment_setup PASSED [ 93%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_large_document_processing PASSED [ 96%]
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_concurrent_queries PASSED [100%]C:\Users\diego\Desktop\Proyecto-CIB02N\env\Lib\site-packages\coverage\report_core.py:116: CoverageWarning: Couldn't parse 'C:\Users\diego\Desktop\Proyecto-CIB02N\config-3.py': No source for code: 'C:\Users\diego\Desktop\Proyecto-CIB02N\config-3.py'. (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+C:\Users\diego\Desktop\Proyecto-CIB02N\env\Lib\site-packages\coverage\report_core.py:116: CoverageWarning: Couldn't parse 'C:\Users\diego\Desktop\Proyecto-CIB02N\config.py': No source for code: 'C:\Users\diego\Desktop\Proyecto-CIB02N\config.py'. (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+
+
+================================== FAILURES ===================================
+________ TestFIEERAGRealSystem.test_specific_date_accuracy_regression _________
+
+self = <test_fiee_rag_real.TestFIEERAGRealSystem object at 0x000001E0F4A12C50>
+mock_rag_system = <test_fiee_rag_real.TestFIEERAGRealSystem.mock_rag_system.<locals>.MockFIEERAGSystem object at 0x000001E0F498B770>
+
+    @pytest.mark.regression
+    def test_specific_date_accuracy_regression(self, mock_rag_system):
+        """Prueba de regresión: precisión en fechas específicas"""
+        date_queries = [
+            ("matrícula 2025-1", ["10", "14", "marzo"]),
+            ("inicio clases 2025-1", ["17", "marzo"]),
+            ("matrícula 2025-2", ["21", "24", "agosto"]),
+            ("inicio clases 2025-2", ["25", "agosto"])
+        ]
+    
+        for query, expected_elements in date_queries:
+            answer = mock_rag_system.ask(f"¿Cuándo es {query}?")
+    
+            elements_found = sum(1 for element in expected_elements
+                               if element in answer.lower())
+            accuracy = elements_found / len(expected_elements)
+    
+>           assert accuracy >= 0.6, f"Baja precisión en fechas para '{query}': {accuracy}"
+E           AssertionError: Baja precisión en fechas para 'inicio clases 2025-1': 0.0
+E           assert 0.0 >= 0.6
+
+test_fiee_rag_real.py:381: AssertionError
+_________ TestFIEERAGRealSystem.test_student_certificate_request_flow _________
+
+self = <test_fiee_rag_real.TestFIEERAGRealSystem object at 0x000001E0F49E94F0>
+mock_rag_system = <test_fiee_rag_real.TestFIEERAGRealSystem.mock_rag_system.<locals>.MockFIEERAGSystem object at 0x000001E0F498BCB0>
+
+    @pytest.mark.user_acceptance
+    def test_student_certificate_request_flow(self, mock_rag_system):
+        """Prueba de aceptación: flujo completo de solicitud de certificado"""
+        # Simular conversación real de estudiante
+    
+        # Pregunta inicial
+        response1 = mock_rag_system.ask("Necesito un certificado para una beca, ¿cómo lo solicito?")
+        assert "Mesa de Partes" in response1 or "ORCE" in response1
+        assert "100" in response1 or "costo" in response1.lower()
+    
+        # Pregunta de seguimiento sobre costo
+        response2 = mock_rag_system.ask("¿Cuánto cuesta exactamente?")
+>       assert "100" in response2
+E       AssertionError: assert '100' in 'Basándome en los documentos de FIEE, puedo ayudarte con información sobre: ¿Cuánto cuesta exactamente?'
+
+test_fiee_rag_real.py:418: AssertionError
+__________ TestFIEERAGRealSystem.test_transfer_student_inquiry_flow ___________
+
+self = <test_fiee_rag_real.TestFIEERAGRealSystem object at 0x000001E0F4A26270>
+mock_rag_system = <test_fiee_rag_real.TestFIEERAGRealSystem.mock_rag_system.<locals>.MockFIEERAGSystem object at 0x000001E0F4AB42F0>
+
+    @pytest.mark.user_acceptance
+    def test_transfer_student_inquiry_flow(self, mock_rag_system):
+        """Prueba de aceptación: consulta de estudiante sobre traslado"""
+        # Estudiante interesado en traslado interno
+    
+        response1 = mock_rag_system.ask("¿Puedo cambiarme a ingeniería electrónica?")
+>       assert "traslado" in response1.lower()
+E       AssertionError: assert 'traslado' in 'basándome en los documentos de fiee, puedo ayudarte con información sobre: ¿puedo cambiarme a ingeniería electrónica?'
+E        +  where 'basándome en los documentos de fiee, puedo ayudarte con información sobre: ¿puedo cambiarme a ingeniería electrónica?' = <built-in method lower of str object at 0x000001E0F4B4C5B0>()
+E        +    where <built-in method lower of str object at 0x000001E0F4B4C5B0> = 'Basándome en los documentos de FIEE, puedo ayudarte con información sobre: ¿Puedo cambiarme a ingeniería electrónica?'.lower
+
+test_fiee_rag_real.py:432: AssertionError
+____________ TestFIEERAGRealSystem.test_enrollment_period_inquiry _____________
+
+self = <test_fiee_rag_real.TestFIEERAGRealSystem object at 0x000001E0F4A26430>
+mock_rag_system = <test_fiee_rag_real.TestFIEERAGRealSystem.mock_rag_system.<locals>.MockFIEERAGSystem object at 0x000001E0F4AB41A0>
+
+    @pytest.mark.user_acceptance
+    def test_enrollment_period_inquiry(self, mock_rag_system):
+        """Prueba de aceptación: consulta sobre períodos de matrícula"""
+    
+        response1 = mock_rag_system.ask("¿Cuándo es la matrícula para el próximo ciclo?")
+        assert "marzo" in response1.lower() or "agosto" in response1.lower()
+    
+        response2 = mock_rag_system.ask("¿Y cuándo empiezan las clases?")
+>       assert "17" in response2 or "25" in response2  # Fechas de inicio típicas
+E       AssertionError: assert ('17' in 'Basándome en los documentos de FIEE, puedo ayudarte con información sobre: ¿Y cuándo empiezan las clases?' or '25' in 'Basándome en los documentos de FIEE, puedo ayudarte con información sobre: ¿Y cuándo empiezan las clases?')
+
+test_fiee_rag_real.py:451: AssertionError
+_____________ TestFIEERAGRealSystem.test_ambiguous_query_handling _____________
+
+self = <test_fiee_rag_real.TestFIEERAGRealSystem object at 0x000001E0F4A05E60>
+mock_rag_system = <test_fiee_rag_real.TestFIEERAGRealSystem.mock_rag_system.<locals>.MockFIEERAGSystem object at 0x000001E0F4AB4C20>
+
+    @pytest.mark.usability
+    def test_ambiguous_query_handling(self, mock_rag_system):
+        """Prueba de usabilidad: manejo de consultas ambiguas"""
+    
+        ambiguous_queries = [
+            "¿Cómo hago eso?",
+            "¿Cuánto cuesta?",
+            "¿Dónde voy?",
+            "Necesito ayuda con el trámite"
+        ]
+    
+        for query in ambiguous_queries:
+            response = mock_rag_system.ask(query)
+    
+            # Debe pedir clarificación o dar opciones
+            clarification_indicators = [
+                "específico", "qué tipo", "cuál", "clarificar",
+                "certificado", "traslado", "matrícula", "opciones"
+            ]
+    
+            has_clarification = any(indicator in response.lower()
+                                  for indicator in clarification_indicators)
+    
+>           assert has_clarification, f"No maneja bien consulta ambigua: '{query}'"
+E           AssertionError: No maneja bien consulta ambigua: '¿Cómo hago eso?'
+E           assert False
+
+test_fiee_rag_real.py:481: AssertionError
+_______ TestFIEERAGRealSystem.test_domain_specific_terminology_coverage _______
+
+self = <test_fiee_rag_real.TestFIEERAGRealSystem object at 0x000001E0F4956810>
+real_fiee_data = [{'filename': '2024-3.png', 'ruta': './data\\2024-3.png', 'texto': 'FECHA ACTIVIDAD OBSERVACIÓN INTRANET del alumno UN...r de la UNI. Adjuntar recibo original de caja UNI (pago por este concepto de S/. 100.00 nuevos soles)', 'tipo': 'pdf'}]
+
+    def test_domain_specific_terminology_coverage(self, real_fiee_data):
+        """Métricas: Cobertura de terminología específica de FIEE"""
+    
+        fiee_terminology = [
+            # Escuelas profesionales
+            "ingeniería eléctrica", "ingeniería electrónica", "telecomunicaciones",
+            # Trámites académicos
+            "certificado", "constancia", "traslado", "matrícula", "egresado",
+            # Entidades UNI
+            "orce", "dirce", "fiee", "mesa de partes", "decano",
+            # Períodos académicos
+            "ciclo", "semestre", "período académico", "examen", "retiro",
+            # Documentos y procedimientos
+            "solicitud", "expediente", "reclamo", "convalidación", "bachiller"
+        ]
+    
+        def calculate_terminology_coverage(documents, terms):
+            total_terms = len(terms)
+            covered_terms = 0
+    
+            all_text = " ".join([doc["texto"].lower() for doc in documents])
+    
+            for term in terms:
+                if term.lower() in all_text:
+                    covered_terms += 1
+    
+            return covered_terms / total_terms
+    
+        coverage = calculate_terminology_coverage(real_fiee_data, fiee_terminology)
+    
+        # Debe cubrir al menos 60% de la terminología específica
+>       assert coverage >= 0.6, f"Baja cobertura de terminología FIEE: {coverage}"
+E       AssertionError: Baja cobertura de terminología FIEE: 0.34782608695652173
+E       assert 0.34782608695652173 >= 0.6
+
+test_fiee_rag_real.py:533: AssertionError
+============================== warnings summary ===============================
+test_fiee_rag_real.py:326
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:326: PytestUnknownMarkWarning: Unknown pytest.mark.regression - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.regression
+
+test_fiee_rag_real.py:364
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:364: PytestUnknownMarkWarning: Unknown pytest.mark.regression - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.regression
+
+test_fiee_rag_real.py:383
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:383: PytestUnknownMarkWarning: Unknown pytest.mark.performance - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.performance
+
+test_fiee_rag_real.py:406
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:406: PytestUnknownMarkWarning: Unknown pytest.mark.user_acceptance - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.user_acceptance
+
+test_fiee_rag_real.py:426
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:426: PytestUnknownMarkWarning: Unknown pytest.mark.user_acceptance - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.user_acceptance
+
+test_fiee_rag_real.py:443
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:443: PytestUnknownMarkWarning: Unknown pytest.mark.user_acceptance - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.user_acceptance
+
+test_fiee_rag_real.py:458
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:458: PytestUnknownMarkWarning: Unknown pytest.mark.usability - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.usability
+
+test_fiee_rag_real.py:484
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:484: PytestUnknownMarkWarning: Unknown pytest.mark.usability - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.usability
+
+test_fiee_rag_real.py:710
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:710: PytestUnknownMarkWarning: Unknown pytest.mark.edge_cases - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.edge_cases
+
+test_fiee_rag_real.py:720
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:720: PytestUnknownMarkWarning: Unknown pytest.mark.edge_cases - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.edge_cases
+
+test_fiee_rag_real.py:729
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:729: PytestUnknownMarkWarning: Unknown pytest.mark.edge_cases - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.edge_cases
+
+test_fiee_rag_real.py:744
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:744: PytestUnknownMarkWarning: Unknown pytest.mark.edge_cases - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.edge_cases
+
+test_fiee_rag_real.py:856
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:856: PytestUnknownMarkWarning: Unknown pytest.mark.performance - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.performance
+
+test_fiee_rag_real.py:885
+  C:\Users\diego\Desktop\Proyecto-CIB02N\test_fiee_rag_real.py:885: PytestUnknownMarkWarning: Unknown pytest.mark.performance - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.performance
+
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_pdf_integration_with_fiee_documents
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_pdf_integration_with_fiee_documents
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_pdf_integration_with_fiee_documents
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_pdf_integration_with_fiee_documents
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+test_fiee_rag_real.py::TestFIEERAGRealSystem::test_pdf_integration_with_fiee_documents
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ---------------------------------
+report saved to: test_results.json
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.13.2-final-0 _______________
+
+Name                            Stmts   Miss  Cover   Missing
+-------------------------------------------------------------
+app.py                             38     38     0%   1-88
+json_to_embeddings.py              24     24     0%   1-35
+ocr_to_json.py                     55     55     0%   1-85
+test_fiee_rag_real.py             425     19    96%   59, 235, 270-271, 419-424, 434-441, 454-456, 482, 931
+visualization_bd_vectorial.py      25     25     0%   1-36
+-------------------------------------------------------------
+TOTAL                             567    161    72%
+Coverage HTML written to dir htmlcov
+=========================== short test summary info ===========================
+FAILED test_fiee_rag_real.py::TestFIEERAGRealSystem::test_specific_date_accuracy_regression
+FAILED test_fiee_rag_real.py::TestFIEERAGRealSystem::test_student_certificate_request_flow
+FAILED test_fiee_rag_real.py::TestFIEERAGRealSystem::test_transfer_student_inquiry_flow
+FAILED test_fiee_rag_real.py::TestFIEERAGRealSystem::test_enrollment_period_inquiry
+FAILED test_fiee_rag_real.py::TestFIEERAGRealSystem::test_ambiguous_query_handling
+FAILED test_fiee_rag_real.py::TestFIEERAGRealSystem::test_domain_specific_terminology_coverage
+================= 6 failed, 25 passed, 19 warnings in 22.00s ==================
